@@ -15,7 +15,11 @@ procesos: $(BIN_DIR)
 run: procesos
 	./$(BIN_DIR)/procesos_fork
 #---------------------------------------------------------------------
+mi-proceso: $(BIN_DIR)
+	$(CC) $(CFLAGS) $(SRC_DIR)/mi_proceso.c -o $(BIN_DIR)/mi_proceso
 
+run-mi-proceso: mi-proceso
+	./$(BIN_DIR)/mi_proceso
 #---------------------------------------------------------------------
 # Se añade el archivo a compilar al bin
 # Compilar test_fork
@@ -33,4 +37,4 @@ run-test: test
 clean:
 	rm -rf $(BIN_DIR)/*
 
-.PHONY: clean run run-test test procesos
+.PHONY: clean run run-test test procesos mi-proceso run-mi-proceso

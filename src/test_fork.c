@@ -2,7 +2,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-int main() {
+int test() {
     printf("Hola! Estoy aprendiendo procesos en C\n");
     printf("Mi primer programa compilado\n");
 
