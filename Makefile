@@ -7,31 +7,26 @@ BIN_DIR = bin
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
 #---------------------------------------------------------------------
-# Compilar el programa principal (cuando lo crees)
-procesos: $(BIN_DIR)
-	$(CC) $(CFLAGS) $(SRC_DIR)/procesos_fork.c -o $(BIN_DIR)/procesos_fork
 
+# Se añade el archivo a compilar al bin
+# Compilar test_fork
+respuestas: $(BIN_DIR)
+	$(CC) $(CFLAGS) $(SRC_DIR)/respuestas_preguntas.c -o $(BIN_DIR)/respuestas_preguntas
+
+# Se crea el comando "test" para indicarlo on the terminal
 # Ejecutar programa principal
-run: procesos
-	./$(BIN_DIR)/procesos_fork
+run-respuestas: respuestas
+	./$(BIN_DIR)/respuestas_preguntas
+
 #---------------------------------------------------------------------
+
 mi-proceso: $(BIN_DIR)
 	$(CC) $(CFLAGS) $(SRC_DIR)/mi_proceso.c -o $(BIN_DIR)/mi_proceso
 
 run-mi-proceso: mi-proceso
 	./$(BIN_DIR)/mi_proceso
-#---------------------------------------------------------------------
-# Se añade el archivo a compilar al bin
-# Compilar test_fork
-test: $(BIN_DIR)
-	$(CC) $(CFLAGS) $(SRC_DIR)/test_fork.c -o $(BIN_DIR)/test_fork
 
-# Ejecutar test
-# Se crea el comando "test" para indicarlo on the terminal
-run-test: test
-	./$(BIN_DIR)/test_fork
 #---------------------------------------------------------------------
-
 
 # Limpiar binarios
 clean:
